@@ -1,0 +1,43 @@
+# CAP
+_out
+*.db
+*.sqlite
+connection.properties
+default-*.json
+.cdsrc-private.json
+gen/
+node_modules/
+target/
+.env
+db/data/*.csv
+
+# Web IDE, App Studio
+.che/
+.gen/
+
+# MTA
+*_mta_build_tmp
+*.mtar
+mta_archives/
+
+# Other
+.DS_Store
+*.orig
+*.log
+.npmrc
+cert/*
+
+*.iml
+*.flattened-pom.xml
+
+# IDEs
+.vscode
+.vscode/*
+# .idea
+dist/
+@cds-models
+resources/
+app/*/package-lock.json
+package-lock.json
+#Jest files
+coverage/

@@ -1,0 +1,24 @@
+{
+  "extends": "@tsconfig/node-lts/tsconfig.json",
+  "compilerOptions": {
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "#cds-models/*": [
+        "./@cds-models/*/index.ts"
+      ]
+    },
+    "esModuleInterop": false,
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "useDefineForClassFields": false
+  },
+  "include": [
+    "srv/**/*"
+  ]
+}
+ 

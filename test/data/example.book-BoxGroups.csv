@@ -1,0 +1,3 @@
+ID,store_ID,name,description,createdAt,createdBy,modifiedAt,modifiedBy
+01,01,BOX_GROUPS,Box groups,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin
+02,02,BOX_GROUPS2,Box groups 2,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin

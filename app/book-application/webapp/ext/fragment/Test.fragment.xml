@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<StepInput
+		core:require="{ handler: 'example/book/bookapplication/ext/fragment/Test'}"
+		id="idCalculatedNetWeightStepInput"
+		value="{calculatedData/calculatedNetWeight}"
+		displayValuePrecision="3"
+		step="0.1"
+		fieldWidth="125px"
+		change="handler.onPress" /> 	
+</core:FragmentDefinition>

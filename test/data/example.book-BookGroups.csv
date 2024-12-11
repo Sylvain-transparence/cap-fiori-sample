@@ -1,0 +1,2 @@
+ID,store_ID,book_ID,name,description,defaultQuantity,boxGroup_ID,calculatedData_ID,createdAt,createdBy,modifiedAt,modifiedBy
+01,01,1,TEST_GROUPS,Groups 1,10,01,,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin

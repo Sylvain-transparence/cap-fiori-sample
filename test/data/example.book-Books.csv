@@ -1,0 +1,10 @@
+ID,name,description,netWeight,createdAt,createdBy,modifiedAt,modifiedBy
+1,test1,test,8,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin
+2,test2,test,5,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin
+3,test3,test,6,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin
+4,test4,test,10,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin
+5,test5,test,10,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin
+6,test6,test,10,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin
+7,test7,test,10,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin
+8,test8,test,10,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin
+9,test9,test,10,2024-12-06T10:00:00.000Z,admin,2024-12-06T10:00:00.000Z,admin

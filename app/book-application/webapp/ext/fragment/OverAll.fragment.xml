@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:macros="sap.fe.macros">
+	<VBox core:require="{ handler: 'example/book/bookapplication/ext/fragment/OverAll'}">
+		<Title
+			text="{i18n>TotalBookWeight}"
+			class="sapUiTinyMarginBottom"
+		/>
+		<ObjectStatus
+			text="{totalBookWeight}"
+			class="sapMObjectStatusLarge"
+			icon="sap-icon://compare-2"
+		/>
+	</VBox>
+</core:FragmentDefinition>
