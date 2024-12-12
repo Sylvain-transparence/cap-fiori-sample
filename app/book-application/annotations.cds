@@ -68,6 +68,11 @@ annotate service.BookGroups with @(UI.LineItem #BookGroup: [
         Label: '{i18n>BookDescription}',
     },
     {
+        $Type: 'UI.DataField',
+        Value: defaultQuantity,
+        Label: '{i18n>DefaultQuantity}',
+    },
+    {
         $Type : 'UI.DataField',
         Value : calculatedData.bookWeight,
     }
