@@ -8,23 +8,22 @@ sap.ui.define([
         onPress: async function (oEvent) {
             BusyIndicator.show(0);
 
-            const emptiesList = [];
-            const modifiedEmptyUI = oEvent.getSource().getBindingContext()?.getObject();
-                const uiFieldID = oEvent.getSource().getId();
-            const currentNetWeight = uiFieldID.includes('netWeight')
+            const bookGroupList = [];
+            const modifiedBookGroupUI = oEvent.getSource().getBindingContext()?.getObject();
+            const uiFieldID = oEvent.getSource().getId();
+            const currentNetWeight = uiFieldID.includes('NetWeight')
 			? oEvent.getParameter('value')
-			: modifiedEmptyUI.calculatedData?.calculatedNetWeight;
+			: modifiedBookGroupUI.calculatedData?.calculatedNetWeight;
             const currentQuantity = uiFieldID.includes('Quantity')
 			? oEvent.getParameter('value')
-			: modifiedEmptyUI.calculatedData?.calculatedQuantity;
+			: modifiedBookGroupUI.calculatedData?.calculatedQuantity;
 
-            const modifiedEmpty = {
-                id: modifiedEmptyUI.ID,
+            const modifiedBookGroup = {
+                id: modifiedBookGroupUI.ID,
                 currentQuantity: currentQuantity,
                 currentNetWeight: currentNetWeight,
             };
-            if (!modifiedEmpty) return;
-            console.log(modifiedEmpty);
+            if (!modifiedBookGroup) return;
     
             const oTable = oEvent.getSource().getParent()?.getParent();
             if (!oTable) return;
@@ -35,7 +34,7 @@ sap.ui.define([
                 if (!emptyContext) return;
                 const empty = emptyContext.getBindingContext()?.getObject();
                 //2nd Parameter for action
-                emptiesList.push({
+                bookGroupList.push({
                     id: empty.ID,
                     currentQuantity: empty.calculatedData?.calculatedQuantity,
                     currentNetWeight: empty.calculatedData?.calculatedNetWeight,
@@ -67,8 +66,8 @@ sap.ui.define([
                 'example.book.BookCalculationService.performCalculation(...)',
                 oTareGroupsContext,
             );
-            oAction.setParameter('modifiedEmpty', modifiedEmpty);
-            oAction.setParameter('emptiesList', emptiesList);
+            oAction.setParameter('modifiedBookGroup', modifiedBookGroup);
+            oAction.setParameter('bookGroupList', bookGroupList);
 
             await oAction.invoke().then(
                 async function (oContext) {

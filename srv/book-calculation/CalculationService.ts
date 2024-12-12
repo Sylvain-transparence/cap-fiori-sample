@@ -11,17 +11,57 @@ export class CalculationService {
 		req: CustomRequest,
 	): Promise<void | BoxGroup> {
 
-		const { bookGroupList } = req.data;
+		const { modifiedBookGroup, bookGroupList } = req.data;
+		const uiModifiedBookGroup = modifiedBookGroup as ActionBookGroupQuantityRequest;
 		const uiBookGroupList = bookGroupList as ActionBookGroupQuantityRequest[];
 
 		const boxGroupID: BoxGroup['ID'] = req.params[0] as BoxGroup['ID'];
 		if (!boxGroupID) return;
 		const boxGroup = await this.fetchBoxGroupById(boxGroupID) ?? {};
 
+		await this.checkModifiedEmpty(uiModifiedBookGroup, uiBookGroupList);
+
 		boxGroup.totalBookWeight =
 			await this.calculateTotalBookWeight(uiBookGroupList);
 
 		return boxGroup;
+	}
+
+	private async checkModifiedEmpty(
+		modifiedBookGroup: ActionBookGroupQuantityRequest,
+		bookGroupList: ActionBookGroupQuantityRequest[],
+	) {
+		if (!modifiedBookGroup.currentQuantity || modifiedBookGroup.currentQuantity < 1) {
+			return;
+		}
+
+		if (!modifiedBookGroup.currentNetWeight) {
+			return;
+		}
+
+		const bookGroup = await SELECT.one
+			.from(BookGroups)
+			.where({ ID: modifiedBookGroup.id });
+
+		if (!bookGroup) {
+			return;
+		}
+
+		const book = (await SELECT.one.from(Books).where({ ID: bookGroup.book_ID })) as Book;
+
+		bookGroup.book = book;
+
+		if (!bookGroup.calculatedData) bookGroup.calculatedData = {};
+
+		bookGroup.calculatedData.calculatedQuantity = modifiedBookGroup.currentQuantity;
+		bookGroup.calculatedData.calculatedNetWeight = modifiedBookGroup.currentNetWeight;
+
+		const index = bookGroupList.findIndex((e) => e.id === bookGroup.ID);
+		bookGroupList[index] = {
+			...bookGroupList[index],
+			currentQuantity: bookGroup.calculatedData?.calculatedQuantity,
+			currentNetWeight: bookGroup.calculatedData?.calculatedNetWeight,
+		};
 	}
 
 	async calculateTotalBookWeight(

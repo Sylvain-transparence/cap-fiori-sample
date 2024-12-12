@@ -11,7 +11,7 @@ service BookCalculationService {
             Common.SideEffects             : {TargetEntities: ['_it/bookGroups'], }
         )
         action performCalculation(modifiedBookGroup : ActionBookGroupQuantityRequest,
-                                  bookGroupsList : many ActionBookGroupQuantityRequest)        returns BoxGroups;
+                                  bookGroupList : many ActionBookGroupQuantityRequest)        returns BoxGroups;
     };
 
     entity BookGroups               as projection on book.BookGroups;
