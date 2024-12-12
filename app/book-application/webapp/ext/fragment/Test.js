@@ -1,8 +1,7 @@
 sap.ui.define([
     "sap/m/MessageToast",
     'sap/ui/core/BusyIndicator',
-    '../controller/BoxGroupsObjectPageExt.controller',
-], function (MessageToast, BusyIndicator, BoxGroupsObjectPageExt) {
+], function (MessageToast, BusyIndicator) {
     'use strict';
 
     return {
